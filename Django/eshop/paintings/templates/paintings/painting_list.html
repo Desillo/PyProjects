@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Painting list</h1>
+    {% if painting_list %}
+        <ul>
+            {% for painting in painting_list %}
+            <li>
+                <a href="{{ painting.get_absolute_url }}">{{ painting.title }}</a>
+                ({{ painting.author }})
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No paintings are available</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>Local Paintings Store Home</h1>
+    <p>Welcome to Local Paintings Store</p>
+    <h2>Dynamic content</h2>
+    <p>The store has the following record counts:</p>
+    {% if latest_paint_list %}
+        <ul>
+            {% for paint in latest_paint_list %}
+                <li><a href="/paintings/{{ paint.id }}">{{ paint.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No paintings are available</p>
+    {% endif %}
+{% endblock %}
